@@ -22,27 +22,27 @@ cache:
 clean:
   stage: clean
   script:
-  - ansible-playbook clean-virl.yml
+    - ansible-playbook clean-virl.yml
 
 build-ca:
   stage: build-ca
   script:
-  - ansible-playbook build-ca.yml
+    - ansible-playbook build-ca.yml
 
 build-control:
   stage: build-control
   script:
-  - ansible-playbook build-virl.yml
+    - ansible-playbook build-virl.yml
 
 config-control:
   stage: config-control
   script:
-  - ansible-playbook config-virl.yml
+    - ansible-playbook config-virl.yml
 
 deploy-edges:
   stage: deploy-edges
   script:
-  - ansible-playbook deploy-virl.yml
+    - ansible-playbook deploy-virl.yml
 
 waitfor-edges:
   stage: waitfor-edges
@@ -52,4 +52,4 @@ waitfor-edges:
 test:
   stage: test
   script:
-  - ansible-playbook check-sdwan.yml
+    - ansible-playbook check-sdwan.yml
