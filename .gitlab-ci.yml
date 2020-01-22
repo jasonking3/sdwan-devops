@@ -17,7 +17,7 @@ variables:
 
 .tags: &tags
   tags:
-    - runner1
+    - runnerX
 
 cache:
   paths:
