@@ -27,7 +27,7 @@ clean:
   <<: *tags
   stage: clean
   script:
-    - ansible-playbook clean-virl.yml
+    - ansible-playbook --tags "delete" clean-virl.yml
 
 build-ca:
   <<: *tags
