@@ -48,6 +48,6 @@ all:
         sdwan_edge:
           hosts:
             hq-cedge1:
-            site1-cedge1:
+            site1-vedge1:
             site2-vedge1:
             

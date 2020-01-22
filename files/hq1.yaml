@@ -1,8 +1,8 @@
 lab:
   description: ''
   notes: ''
-  timestamp: 1573474341.8005874
-  title: stevenca_hq1
+  timestamp: 1579726869.6668544
+  title: hq1.yaml
   version: 0.0.2
 nodes:
   - id: n0
@@ -95,287 +95,6 @@ nodes:
       - id: i5
         slot: 4
         label: GigabitEthernet5
-        type: physical
-  - id: n1
-    label: site1-cedge1
-    node_definition: iosxe-sdwan
-    x: -400
-    y: 150
-    configuration: |-
-      Content-Type: multipart/mixed; boundary="===============3619051782563442762=="
-      MIME-Version: 1.0
-
-      --===============3619051782563442762==
-      Content-Type: text/cloud-config; charset="us-ascii"
-      MIME-Version: 1.0
-      Content-Transfer-Encoding: 7bit
-      Content-Disposition: attachment; filename="cloud-config"
-
-      #cloud-config
-      vinitparam:
-       - uuid : CSR-DE49BFC4-10DF-8579-0F64-CD0F51603A38
-       - vbond : 10.0.0.11
-       - otp : 096839d46970a81874abeb3d2c34a99f
-       - org : CIDR_SDWAN_WORKSHOPS
-       - rcc : true
-      ca-certs:
-        remove-defaults: false
-        trusted:
-        - |
-         -----BEGIN CERTIFICATE-----
-         MIIE4DCCAsigAwIBAgIUA1nCBi00kGHhFRu7fHFj42fsnw8wDQYJKoZIhvcNAQEL
-         BQAwGjEYMBYGA1UEAwwPdmlwdGVsYUNBLmxvY2FsMB4XDTE5MTAzMDIxMDkwM1oX
-         DTI5MTAyNzIxMDkwM1owGjEYMBYGA1UEAwwPdmlwdGVsYUNBLmxvY2FsMIICIjAN
-         BgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArBNDysVU0+m1r7JIAcuZ94FfxYBA
-         PDAQ5yKGhcuve6qrW9QQlZoHgeZwLB3Ckf8v2QHHDsPPEspaFVApJQKzj6PEikCW
-         K3YKaePB1FI0bMt+Wr4uEj3mxjfFYLfW1bB+thKSv0lQJu3tGtWkd5r5VxdTVV9+
-         plM1dMmbV7WI2zCCaRiQ1Wh5/eSN7Lxp/g6iPxuD0T0+uUmqaaQYMpfRwwNh7S9f
-         SDh0G/x6FoUHqKuGG/1fmty1Q4U0yaTkf4nrdtBpQ1EhKhqP9MlnTvlKXHr9W2GQ
-         xdY7AyFHardTYkVjm8uM3MPKLkYZg670eJHkSGh0ZRLcEdrZBJoZssePlYE6iGIB
-         ISlzoXyU/E7DQiBh8Arrm3SXnqHBP3HaYf3HxiAa5w7UI6ERb8cXYNKbPOvC/JG/
-         sjJ3mXqDcbyRVnFgp8q+BGcdTqnYq69QPdh3/0EwjGx+TKRt6/il3B7hZpj0KNOZ
-         ZJPtzJR5/jiWlEYEEx3WFDxdu26gar9VeMHK5XeqTzVoJwRtGYboE5ENbDcKqAjX
-         TrYiDhSvpjirLcLfeWU+2hJSLd/UDzBoGqaXdtDreBhSv+RzSxOULbUrnP1gqyAd
-         g2/W1Hu8KTIDYSmSkvFL+LNDOaZpY52J3c3wnBkACK5HsYVbIEnlfdasrEei4d0p
-         +9Y1sxTYThQebusCAwEAAaMeMBwwGgYDVR0RBBMwEYIPdmlwdGVsYUNBLmxvY2Fs
-         MA0GCSqGSIb3DQEBCwUAA4ICAQCmDHuGbtmMp3smcN36N/71tEdd6iPLL85uvbiC
-         rLW9aP8vRhUTRLpri5p3V5u/HZUgOioabe55exhvDH10bGLHJ25/6IpGZEVGPNzE
-         IwmzbOB8Tga5Ki6/W/uSF2sJvtn7bNw0nfiOngNJSsz3vS1ZXz46DnNOD1pVFf9f
-         FJ63hQEywGBSUBdoR1TMu0ZlxlKgKzxSdxXkNW1M7PVeRFdv1tykakn0kpJ2xMbu
-         7dEuzChF55e+8JYQYMhkWApTEYm8rgvXv3HZ8E4opb7iy7m685q04OoCi6hhiK/2
-         unj/0boBrpJPk2eCA+onz73iPh06Bo6oXezgLNJIxW0n+/GzlZyRUogkVSheB68e
-         6/kvj8oukISmYiaSJX13AOfdMMwH1cmmX7q2UA+xhE7jUT+UV0mKtL5gfZ6vOkFI
-         3y6lYY/89wgBI5mcNxwytPEvvP9mf9cn8jXPvToTerP3oXbl/UcqeHLVOYXzA1Zm
-         ITfWW/NgrejkOCJ8bx4yC7LsjTYTIaYIbWtV9CCfs7cit7MeyZQExkk12oLOFk+y
-         oxFeOa7Gg40SKerN2R60RFgQWsiHn+Gv7QmysVTACrBWJJFF7U9dDTzrNM+mwSW/
-         E9XGVPKQNqZuDsD2VA2nyJJNCkufN/VKEnIWe+9V0IjBoJJNfuSwvFYSjyCBTkDo
-         OfgmJg==
-         -----END CERTIFICATE-----
-         -----BEGIN CERTIFICATE-----
-         MIIDGDCCAgCgAwIBAgIEBCYCJzANBgkqhkiG9w0BAQsFADBOMQswCQYDVQQGEwJV
-         UzEtMCsGA1UEAwwkOGEwN2Q5NzYtNzQ0NC00ZDVhLWFmYWUtZjQ3MDA4ZDc5NmY4
-         MRAwDgYDVQQKDAdWaXB0ZWxhMB4XDTE5MTExMDEzNDIxNloXDTI5MTEwODEzNDIx
-         NlowTjELMAkGA1UEBhMCVVMxLTArBgNVBAMMJDhhMDdkOTc2LTc0NDQtNGQ1YS1h
-         ZmFlLWY0NzAwOGQ3OTZmODEQMA4GA1UECgwHVmlwdGVsYTCCASIwDQYJKoZIhvcN
-         AQEBBQADggEPADCCAQoCggEBAJ2akL2bHMaDc0a9DsYjsSHTNjvWPw4l+56dribp
-         tLZ4sU0IPJlcmAvUsXx2OrhsmIVgsBnqyy2yruNhpe0/274lJzPG6SzHmimqUWJJ
-         F+0D2IT3+Af76KpOKkY1ISfUVZTo4IM/BrV4veOEIqoZ2HBT7b7P+5oap4CivsgU
-         y8Ty3A+SSseWm1h2YYOwXVY747BkQQwDgSaipfVRDz5T94hVbdTAyGSXmW/2kyNs
-         oiycQ8aySBX2TZJIjAU7G18TqEvNKXmPGxxJyl1cmf8GLiRLbLpPVbodJdnBT7En
-         gKBENA2RqC1VWS5GIn+BkBySdy5OfkrlzaQILYkrBvjMVEUCAwEAATANBgkqhkiG
-         9w0BAQsFAAOCAQEAjFs6xWdesrZOSLOjQ2AOaNvYnoGMLF+IQPIEY3qWcYJHEfdP
-         2DEwX2Or1SeCwVagl15umLgLSaiuuK7UfY8+47WTOF1ozdHkMPJ1Lnjf+SAY7yWX
-         SdrpSHhHiktXIssLdRUOoL1AiVCxZ5yKqC9mjyEdYk1qX6WlU+SQiA7kENK6DoSM
-         MTT2VYgrY4UrVj3/T+TER8WGeNwUgq8aFPvjtD7geGKIpdj0QEj0H4ea4OmqysdU
-         rixXESp/0KoqT70fBEgjKKJ9CaYoDvZz6iRiZxLSDysiIWboXINfL1AN8PToBwgQ
-         VoFcut4DQZ8HggO6b8BMEU5IwowT3PKAFHOW8w==
-         -----END CERTIFICATE-----
-
-      --===============3619051782563442762==
-      Content-Type: text/cloud-boothook; charset="us-ascii"
-      MIME-Version: 1.0
-      Content-Transfer-Encoding: 7bit
-      Content-Disposition: attachment;
-       filename="config-CSR-DE49BFC4-10DF-8579-0F64-CD0F51603A38.txt"
-
-      #cloud-boothook
-        viptela-system:system
-         personality           vedge
-         device-model          vedge-CSR-1000v
-         host-name             site1-cedge1
-         gps-location latitude 35.85636
-         gps-location longitude -78.879725
-         system-ip             192.168.255.14
-         overlay-id            1
-         site-id               2
-         port-offset           0
-         control-session-pps   300
-         admin-tech-on-failure
-         sp-organization-name  CIDR_SDWAN_WORKSHOPS
-         organization-name     CIDR_SDWAN_WORKSHOPS
-         port-hop
-         track-transport
-         track-default-gateway
-         console-baud-rate     115200
-         vbond 10.0.0.11 port 12346
-         logging
-          disk
-           enable
-          !
-         !
-        !
-        bfd app-route multiplier 6
-        bfd app-route poll-interval 600000
-        omp
-         no shutdown
-         graceful-restart
-        !
-        security
-         ipsec
-          rekey               86400
-          replay-window       512
-          authentication-type sha1-hmac ah-sha1-hmac
-         !
-        !
-        banner login x03 "This system is for the use of authorized clients only." x03
-        banner motd x03 "Welcome to site1-cedge1!" x03
-        no service pad
-        no service tcp-small-servers
-        no service udp-small-servers
-        hostname site1-cedge1
-        username admin privilege 15 secret 9 $9$3VEF3VAI3lMM3E$awMmxogwHvRdxoHA5u1utUOAmKPBUvUbkD4PnwNWmWk
-        vrf definition 1
-         rd 1:1
-         address-family ipv4
-          exit-address-family
-         !
-         address-family ipv6
-          exit-address-family
-         !
-        !
-        vrf definition Mgmt-intf
-         rd 1:512
-         address-family ipv4
-          exit-address-family
-         !
-         address-family ipv6
-          exit-address-family
-         !
-        !
-        no ip finger
-        no ip rcmd rcp-enable
-        no ip rcmd rsh-enable
-        no ip dhcp use class
-        ip route 0.0.0.0 0.0.0.0 172.20.0.9 1
-        no ip igmp ssm-map query dns
-        interface GigabitEthernet1
-         no shutdown
-         arp timeout 1200
-         vrf forwarding Mgmt-intf
-         ip address dhcp client-id GigabitEthernet1
-         ip redirects
-         ip dhcp client default-router distance 1
-         ip mtu    1500
-         mtu 1500
-         negotiation auto
-        exit
-        interface GigabitEthernet2
-         no shutdown
-         arp timeout 1200
-         ip address 172.20.0.10 255.255.255.252
-         ip redirects
-         ip mtu    1500
-         mtu 1500
-         negotiation auto
-        exit
-        interface GigabitEthernet3
-         no shutdown
-         arp timeout 1200
-         vrf forwarding 1
-         ip address 192.168.1.1 255.255.255.0
-         ip redirects
-         ip mtu    1500
-         mtu 1500
-         negotiation auto
-        exit
-        interface Tunnel2
-         no shutdown
-         ip unnumbered GigabitEthernet2
-         no ip redirects
-         ipv6 unnumbered GigabitEthernet2
-         no ipv6 redirects
-         tunnel source GigabitEthernet2
-         tunnel mode sdwan
-        exit
-        clock timezone UTC 0 0
-        logging persistent size 104857600 filesize 10485760
-        logging buffered 512000
-        no logging rate-limit
-        logging persistent
-        aaa authentication login default local
-        aaa authorization exec default local
-        aaa session-id common
-        line con 0
-         login authentication default
-         speed    115200
-         stopbits 1
-        !
-        sdwan
-         interface GigabitEthernet2
-          tunnel-interface
-           encapsulation ipsec weight 1
-           no border
-           color public-internet
-           no last-resort-circuit
-           no low-bandwidth-link
-           control-connections
-           no vbond-as-stun-server
-           vmanage-connection-preference 5
-           port-hop
-           carrier                       default
-           nat-refresh-interval          5
-           hello-interval                1000
-           hello-tolerance               12
-           no allow-service all
-           no allow-service bgp
-           allow-service dhcp
-           allow-service dns
-           allow-service icmp
-           no allow-service sshd
-           allow-service netconf
-           no allow-service ntp
-           no allow-service ospf
-           no allow-service stun
-          exit
-         exit
-         interface GigabitEthernet3
-         exit
-         omp
-          no shutdown
-          send-path-limit  4
-          ecmp-limit       4
-          graceful-restart
-          timers
-           holdtime               60
-           advertisement-interval 1
-           graceful-restart-timer 43200
-           eor-timer              300
-          exit
-          address-family ipv4
-           advertise connected
-           advertise static
-          !
-          address-family ipv6
-           advertise connected
-           advertise static
-          !
-         !
-        !
-       !
-      !
-
-      --===============3619051782563442762==--
-    image_definition: iosxe-sdwan-16.12.1b
-    tags: []
-    interfaces:
-      - id: i0
-        label: Loopback0
-        type: loopback
-      - id: i1
-        slot: 0
-        label: GigabitEthernet1
-        type: physical
-      - id: i2
-        slot: 1
-        label: GigabitEthernet2
-        type: physical
-      - id: i3
-        slot: 2
-        label: GigabitEthernet3
-        type: physical
-      - id: i4
-        slot: 3
-        label: GigabitEthernet4
         type: physical
   - id: n3
     label: sp1-rtr1
@@ -1802,6 +1521,35 @@ nodes:
         slot: 1
         label: ge0/0
         type: physical
+  - id: n16
+    label: site1-vedge1
+    node_definition: viptela-edge
+    x: -400
+    y: 150
+    configuration: |-
+      #cloud-config
+      vinitparam:
+      - otp: 00000000000000000000000000000000
+      - vbond: 1.2.3.4
+      - uuid: 12345678-dead-beef-cafe-1234567890ab
+      - org: some-org-string
+      ssh_authorized_keys:
+        - your-ssh-pub-key-line-goes-here
+    image_definition: viptela-edge-19.2.0
+    tags: []
+    interfaces:
+      - id: i0
+        slot: 0
+        label: eth0
+        type: physical
+      - id: i1
+        slot: 1
+        label: ge0/0
+        type: physical
+      - id: i2
+        slot: 2
+        label: ge0/1
+        type: physical
 links:
   - id: l8
     i1: i2
@@ -1823,21 +1571,11 @@ links:
     n1: n0
     i2: i0
     n2: n24
-  - id: l16
-    i1: i1
-    n1: n1
-    i2: i0
-    n2: n27
   - id: l4
     i1: i2
     n1: n0
     i2: i2
     n2: n4
-  - id: l6
-    i1: i3
-    n1: n0
-    i2: i2
-    n2: n1
   - id: l18
     i1: i5
     n1: n0
@@ -1868,11 +1606,6 @@ links:
     n1: n5
     i2: i0
     n2: n2
-  - id: l20
-    i1: i0
-    n1: n13
-    i2: i3
-    n2: n1
   - id: l21
     i1: i0
     n1: n18
@@ -1903,3 +1636,18 @@ links:
     n1: n10
     i2: i3
     n2: n8
+  - id: l3
+    i1: i2
+    n1: n16
+    i2: i0
+    n2: n13
+  - id: l5
+    i1: i0
+    n1: n27
+    i2: i0
+    n2: n16
+  - id: l6
+    i1: i3
+    n1: n0
+    i2: i1
+    n2: n16
