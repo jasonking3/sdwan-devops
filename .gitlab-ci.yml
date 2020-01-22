@@ -15,41 +15,52 @@ variables:
   ANSIBLE_ROLES_PATH: "./roles"
   GIT_SUBMODULE_STRATEGY: "recursive"
 
+.tags: &tags
+  tags:
+    - runner1
+
 cache:
   paths:
     - myCA/
 
 clean:
+  <<: *tags
   stage: clean
   script:
     - ansible-playbook clean-virl.yml
 
 build-ca:
+  <<: *tags
   stage: build-ca
   script:
     - ansible-playbook build-ca.yml
 
 build-control:
+  <<: *tags
   stage: build-control
   script:
     - ansible-playbook build-virl.yml
 
 config-control:
+  <<: *tags
   stage: config-control
   script:
     - ansible-playbook config-virl.yml
 
 deploy-edges:
+  <<: *tags
   stage: deploy-edges
   script:
     - ansible-playbook deploy-virl.yml
 
 waitfor-edges:
+  <<: *tags
   stage: waitfor-edges
   script:
   - ansible-playbook waitfor-sync.yml
   
 test:
+  <<: *tags
   stage: test
   script:
     - ansible-playbook check-sdwan.yml
