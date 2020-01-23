@@ -1024,7 +1024,7 @@ nodes:
         label: port
         type: physical
   - id: n27
-    label: site1-cedge1-mgmt
+    label: site1-vedge1-mgmt
     node_definition: external_connector
     x: -600
     y: 150
