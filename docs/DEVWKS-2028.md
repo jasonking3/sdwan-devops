@@ -65,8 +65,9 @@
 
 1. From the GitLab web UI, navigate to the CI/CD -> Pipelines page.  You should see a pipeline currently active since we commited a the sdwan-devops code and we had a `.gitlab-ci.yml` file present.  If that file is present, GitLab will automatically try to execute the CI pipeline defined inside.
 
-1. Use the graphical representation of the pipeline to click through the console output of the various stages.  The entire pipeline will take approximately ~12 minutes to complete.  Wait until it completes to go onto the next step
+1. Use the graphical representation of the pipeline to click through the console output of the various stages.  The entire pipeline will take approximately ~12 minutes to complete.  Wait until it completes to go onto the next step.
 
+## Review the configuration in vManage
 1. From the shell, export the required VIRL environment variables:
     ```
     export VIRL_HOST=(supplied by instructor)
@@ -82,7 +83,7 @@
 
 1. Browse to the IP address listed for your vManage and login with admin/admin.
 
-1. Verify the configuration of vManage.
+1. Review the configuration of vManage.
 
 ## Modify infrastructure-as-code to exercise the CI pipeline
 1. Run the `virl-inventory.yml` playbook to find your site1-vedge1 IP address.
@@ -96,10 +97,13 @@
 
 1. Verify the banner when you login.  It should look something like:
     ```
-    blah
+    % ssh admin@192.133.183.178
+    This system is for the use of authorized clients only.
+    admin@192.133.183.178's password: 
+    Welcome to site1-vedge1!
     ```
 
-1. Edit the `inventory/hq1/host_vars/site1-vedge1/sdwanl.yml file and replace the line:
+1. Edit the `inventory/hq1/host_vars/site1-vedge1/sdwan.yml` file and replace the line:
     ```
     'banner_motd': Welcome to site1-vedge1!
     ```
