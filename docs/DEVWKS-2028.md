@@ -1,7 +1,7 @@
 # DEVWKS-2028 SD-WAN DevOps Step 3: Continuous Integration/Continuous Deployment
 
 ## Create a CI pipeline in GitLab
-1. Login to GitLab at https://cpn-rtp-gitlab1.ciscops.net:8081 using the credentials supplied by your instructor
+1. Login to GitLab at http://cpn-rtp-gitlab1.colab.ciscops.net:8081 using the credentials supplied by your instructor
 
 1. From the GitLab web UI, select "Create a project".
 
