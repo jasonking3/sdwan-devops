@@ -28,30 +28,18 @@ clean:
   stage: clean
   script:
     - ansible-playbook --tags "delete" clean-virl.yml
-  only:
-    changes:
-      - inventory/hq1/sdwan.yml
-      - files/hq1.yaml
 
 build-ca:
   <<: *tags
   stage: build-ca
   script:
     - ansible-playbook build-ca.yml
-  only:
-    changes:
-      - inventory/hq1/sdwan.yml
-      - files/hq1.yaml
 
 build-control:
   <<: *tags
   stage: build-control
   script:
     - ansible-playbook build-virl.yml
-  only:
-    changes:
-      - inventory/hq1/sdwan.yml
-      - files/hq1.yaml
   
 config-control:
   <<: *tags
