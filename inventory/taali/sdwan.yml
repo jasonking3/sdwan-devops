@@ -1,0 +1,32 @@
+all:
+  children:
+    sdwan:
+      children:
+        sdwan_control:
+          children:
+            vmanage_hosts:
+              vars:
+                sdwan_personality: vmanage
+                sdwan_device_model: vmanage
+              hosts:
+                vManage:
+            vbond_hosts:
+              vars:
+                sdwan_personality: vbond
+                sdwan_device_model: vbond
+              hosts:
+                vBond:
+            vsmart_hosts:
+              vars:
+                sdwan_personality: vsmart
+                sdwan_device_model: vsmart
+              hosts:
+                vSmart:
+        sdwan_edge:
+          children:
+            # physical:
+            #   hosts:              
+            #     jenkins-isr1k1:
+            vmware:
+              hosts:
+                vEdge-br4:

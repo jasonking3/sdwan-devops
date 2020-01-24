@@ -5,6 +5,8 @@ vedge_device_list = [
         networks = ["{{ hostvars[host]['vpn512_portgroup'] }}", "{{ hostvars[host]['vpn0_portgroup'] }}", "{{ hostvars[host]['servicevpn_portgroup'] }}"]
         ipv4_address = "{{ hostvars[host]['sdwan_transport_ip'] }}/{{ hostvars[host]['vpn0_netmask'] }}"
         ipv4_gateway = "{{ hostvars[host]['vpn0_gateway'] }}"
+        vpn512_address = "{{ hostvars[host]['vpn512_eth0_ip'] }}/{{ hostvars[host]['vpn512_netmask'] }}"
+        vpn512_gateway = "{{ hostvars[host]['vpn512_gw_ip'] }}"
     }{% if not loop.last %},{% endif %}
 
     {% endfor %}

@@ -1,0 +1,2 @@
+sdwan_transport_ip: 192.133.179.11
+ansible_host: 10.82.2.210

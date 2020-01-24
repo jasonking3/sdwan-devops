@@ -1,0 +1,23 @@
+sdwan_system_ip: 1.1.40.1
+sdwan_transport_ip: 11.1.40.2
+ansible_host: 10.82.2.222
+sdwan_site_id: 40
+sdwan_model: 'vedge-cloud'
+sdwan_uuid: da984040-114d-2eb3-6616-0ec4b484f344
+sdwan_personality: vedge
+sdwan_template:
+  name: 'vEdge-BR'
+  variables:
+    'system_site_id': "{{ sdwan_site_id }}"
+    'system_host_name': "{{ inventory_hostname}}"
+    'system_system_ip': "{{ sdwan_system_ip }}"
+    'vpn_10_loopback': loopback10
+    'vpn10_loopback_ip': 40.1.1.1/32
+    'vpn512_gw_ip': 10.82.2.129
+    'vpn512_eth0_ip': 10.82.2.222/25
+    'vpn0_gw_ip': 11.1.40.1
+    'vpn0_ge0_ip': 11.1.40.2/30
+bootstrap_method: netconf
+vpn512_gw_ip: 10.82.2.129
+vpn512_eth0_ip: 10.82.2.222
+vpn512_netmask: 25

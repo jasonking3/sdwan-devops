@@ -27,9 +27,6 @@
           datastore: "{{ datastore }}"
           iso_datastore: "{{ iso_datastore }}"
           iso_path: "{{ iso_path }}"
-          vmanage_template: "{{ vmanage_template }}"
-          vbond_template: "{{ vbond_template }}"
-          vsmart_template: "{{ vsmart_template }}"
           vedge_template: "{{ vedge_template }}"        
         force_init: yes
       tags: plan
@@ -102,6 +99,7 @@
   vars:
     ansible_network_os: ios
   serial: 1
+  connection: network_cli
   # This is a workaround for a bug in vmanage.  When multiple requests
   # for boostrap are made to vmanage at the same time, it gets corrupted
   tasks:
@@ -114,7 +112,7 @@
     - name: Install Root CA on edges routers
       block:
         - name: Copy Root CA to edge router
-          copy:
+          net_put:
             src: "{{ sdwan_cert_dir }}/myCA.pem"
             dest: /home/admin
           register: copy_results

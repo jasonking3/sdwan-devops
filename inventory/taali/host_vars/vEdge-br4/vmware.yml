@@ -1,0 +1,5 @@
+vpn0_portgroup: internet-br4
+vpn512_portgroup: "VM Network"
+servicevpn_portgroup: "VM Network"
+vpn0_netmask: 30
+vpn0_gateway: 11.1.40.1
