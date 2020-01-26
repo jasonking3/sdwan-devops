@@ -91,3 +91,10 @@
 1. At the end of the workshop, cleanup the repo and delete the simultation.
     ```
     ./play.sh --tags "delete" clean-virl.yml
+    ```
+
+1. Remove the sdwan-devops repo.
+    ```
+    cd ..
+    rm -rf sdwan-devops
+    ```
