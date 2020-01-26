@@ -96,5 +96,5 @@
 1. Remove the sdwan-devops repo.
     ```
     cd ..
-    rm -rf sdwan-devops
+    sudo rm -rf sdwan-devops
     ```
