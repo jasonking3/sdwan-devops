@@ -60,7 +60,7 @@
 ## Login to vManage and verify the configuration
 1. From the shell, use `virl-inventory.yml` to find the IP address of vManage.
     ```
-    ./play.sh virl-inventory.yml
+    ./play.sh --limit "vmanage1" virl-inventory.yml
     ```
 
 1. Browse to the IP address of vManage and login with the credentials admin/admin.

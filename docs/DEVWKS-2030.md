@@ -78,7 +78,7 @@
 
 1. Run the `virl-inventory.yml` playbook to find your vManage IP address.
     ```
-    ./play.sh virl-inventory.yml
+    ./play.sh --limit "vmanage1" virl-inventory.yml
     ```
 
 1. Browse to the IP address listed for your vManage and login with admin/admin.
@@ -88,7 +88,7 @@
 ## Modify infrastructure-as-code to exercise the CI pipeline
 1. Run the `virl-inventory.yml` playbook to find your site1-vedge1 IP address.
     ```
-    ./play.sh virl-inventory.yml
+    ./play.sh --limit "site1-vedge1" virl-inventory.yml
     ```
 1. SSH to the `site1-vedge1` IP address, using credentials admin/admin.
     ```
