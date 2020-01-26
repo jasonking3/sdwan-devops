@@ -57,6 +57,12 @@
 	git commit -m "Updating .gitlab-ci.yml"
     ```
 
+1. (Optional) You may be required to configure a git user and email before the commit will work.
+    ```
+    git config user.email "nobody@example.com"
+    git config user.name "nobody"
+    ```
+
 1. Now push the commits to your new project.
     ```
     git push -u origin --all
