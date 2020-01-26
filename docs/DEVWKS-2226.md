@@ -86,3 +86,8 @@
 1. If this playbook completes successfully then the SD-WAN toppology has passed all of its connectivity tests.
 
 1. Congratulations!  You have built an entire SD-WAN test environment and configured it in minutes.  You'll never want to do it manually again.
+
+## Cleanup
+1. At the end of the workshop, cleanup the repo and delete the simultation.
+    ```
+    ./play.sh --tags "delete" clean-virl.yml
