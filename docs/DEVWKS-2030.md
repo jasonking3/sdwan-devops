@@ -1,20 +1,8 @@
 # DEVWKS-2030 SD-WAN DevOps Step 3: Continuous Integration/Continuous Deployment
 
 ## Create a CI pipeline in GitLab
-1. Login to GitLab at http://cpn-rtp-gitlab1.colab.ciscops.net:8081 using the credentials supplied by your instructor
-
-1. From the GitLab web UI, select "Create a project".
-
-1. Under "Project name", enter `sdwan-devops` and then click "Create project".
-
-1. Populate the necessary VIRL environment variables needed to access the VIRL server.  We store these variables in the project CI settings so that they are not stored unencrypted in the code repo.  Under Settings -> CI/CD, expand the "Variables" section and supply values for the following variables:
-    - `VIRL_HOST`
-    - `VIRL_USERNAME`
-    - `VIRL_PASSWORD`
-    - `VIRL_LAB`
-    - `VMANAGE_ORG`
-
-1. Click "Save variables".
+1. Login to GitLab at http://cpn-rtp-gitlab1.colab.ciscops.net:8081 using the credentials supplied by your instructor.  Verify that the `sdwan-devops` project exists and the required environment variables are set.
+    > Note: if your instructor has not created the sdwan-devops project for you, go [here](#create-the-project-and-add-the-required-environment-variables) to do that first.
 
 1. From the shell, clone the `sdwan-devops` repo.
     ```
@@ -30,12 +18,25 @@
     ```
     git remote remove origin
     ```
+1. Set the GITLAB_POD environment variable, replacing X with your pod number.
+    ```
+    export GITLAB_POD=podX
+    ```
 
-1. Add a new origin that points to your newly created GitLab project, replacing `X` in the command below with your pod number.
+1. Configure a git user name.
     ```
-    git remote add origin http://podX@cpn-rtp-gitlab1.colab.ciscops.net:8081/podX/sdwan-devops.git
+    git config user.name $GILAB_POD
     ```
-    > Note: there are two places where you need to make this change.
+    
+1. Configure a git user email.
+    ```
+    git config user.email "$GITLAB_POD@example.com"
+    ```
+
+1. Add a new origin that points to your newly created GitLab project.
+    ```
+    git remote add origin http://$GITLAB_POD@cpn-rtp-gitlab1.colab.ciscops.net:8081/$GITLAB_POD/sdwan-devops.git
+    ```
 
 1. Make the licenses directory and download the required license file.
     ```
@@ -57,31 +58,18 @@
 	git commit -m "Updating .gitlab-ci.yml"
     ```
 
-1. (Optional) You may be required to configure a git user and email before the commit will work.
-    ```
-    git config user.email "nobody@example.com"
-    git config user.name "nobody"
-    ```
-
 1. Now push the commits to your new project.
     ```
     git push -u origin --all
     ```
     > Note: enter your GitLab credentials if asked
 
-1. From the GitLab web UI, navigate to the CI/CD -> Pipelines page.  You should see a pipeline currently active since we commited a the sdwan-devops code and we had a `.gitlab-ci.yml` file present.  If that file is present, GitLab will automatically try to execute the CI pipeline defined inside.
+1. From the GitLab web UI, navigate to the CI/CD -> Pipelines page.  You should see a pipeline currently active since we commited the sdwan-devops code and we had a `.gitlab-ci.yml` file present.  If that file is present, GitLab will automatically try to execute the CI pipeline defined inside.
 
 1. Use the graphical representation of the pipeline to click through the console output of the various stages.  The entire pipeline will take approximately ~12 minutes to complete.  Wait until it completes to go onto the next step.
 
 ## Review the configuration in vManage
-1. From the shell, export the required VIRL environment variables:
-    ```
-    export VIRL_HOST=(supplied by instructor)
-    export VIRL_USERNAME=(supplied by instructor)
-    export VIRL_PASSWORD=(supplied by instructor)
-    export VIRL_LAB=podX_sdwan (where X is your pod number)
-    ```
-
+   > Note: if you are not using a DevNet laptop, go [here](#create-the-project-and-add-the-required-environment-variables) and add the required environment variables to your shell.
 1. Run the `virl-inventory.yml` playbook to find your vManage IP address.
     ```
     ./play.sh --limit "vmanage1" virl-inventory.yml
@@ -134,3 +122,34 @@
 1. From the GitLab web UI, navigate to the CI/CD -> Pipelines page.  You should have a new pipeline being run based off the change you pushed to GitLab.  Wait for the pipeline to complete.
 
 1. From the shell, SSH to `site1-vedge1` and verify the new banner.
+
+## View the change control information in GitLab
+1. From the GitLab UI, select Repository -> Commits.
+
+1. Click on the latest commit and view the diff of the change, who made the change, when it was made and whether it passed the CI pipeline.
+
+1. Congratulations!  You created a fully functioning CI pipeline for Cisco SD-WAN.
+
+# Optional stuff.  Only if needed.
+## Create the project and add the required environment variables
+    > Note:  you should not normally need to do this unless the instructor has not set up the project for you.
+1. From the GitLab web UI, select "Create a project".
+
+1. Under "Project name", enter `sdwan-devops` and then click "Create project".
+
+1. Populate the necessary VIRL environment variables needed to access the VIRL server.  We store these variables in the project CI settings so that they are not stored unencrypted in the code repo.  Under Settings -> CI/CD, expand the "Variables" section and supply values for the following variables:
+    - `VIRL_HOST`
+    - `VIRL_USERNAME`
+    - `VIRL_PASSWORD`
+    - `VIRL_LAB`
+    - `VMANAGE_ORG`
+
+## Running from an environment other than DevNet laptops
+    > Note:  you should not normally need to do this unless you are not using a DevNet laptop.
+1. From the shell, export the required VIRL environment variables:
+    ```
+    export VIRL_HOST=(supplied by instructor)
+    export VIRL_USERNAME=(supplied by instructor)
+    export VIRL_PASSWORD=(supplied by instructor)
+    export VIRL_LAB=podX_sdwan (where X is your pod number)
+    ```
