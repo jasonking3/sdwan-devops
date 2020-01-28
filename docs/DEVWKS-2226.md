@@ -17,15 +17,6 @@
     ```
     > Note: this workshop assumes that all future commands are executed from this directory.
 
-1. Set the required environment variables.
-    ```
-    export VIRL_HOST=(supllied by your instructor)
-    export VIRL_USERNAME=(supplied by your instructor)
-    export VIRL_PASSWORD=(supplied by your instructor)
-    export VIRL_LAB=(supplied by your instructor)
-    export VMANAGE_ORG=(supplied by your instructor)
-    ```
-
 1. Make the licenses directory and download the required license file.
     ```
     mkdir licenses
