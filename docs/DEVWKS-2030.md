@@ -4,6 +4,11 @@
 1. Login to GitLab at http://cpn-rtp-gitlab1.colab.ciscops.net:8081 using the credentials supplied by your instructor.  Verify that the `sdwan-devops` project exists and the required environment variables are set.
     > Note: if your instructor has not created the sdwan-devops project for you, go [here](#create-the-project-and-add-the-required-environment-variables) to do that first.
 
+1. From the shell, make sure there is no previous clone of the repo.
+    ```
+    sudo rm -rf sdwan-devops
+    ```
+
 1. From the shell, clone the `sdwan-devops` repo.
     ```
     git clone -b DEVWKS-2226 --recursive https://github.com/CiscoDevNet/sdwan-devops.git
