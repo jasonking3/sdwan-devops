@@ -1,0 +1,41 @@
+all:
+  children:
+    network:
+      children:
+        internet_routers:
+          hosts:
+            colab-rtr:
+        router:
+          hosts:
+            colab-rtr:
+    sdwan:
+      children:
+        sdwan_control:
+          children:
+            vmanage_hosts:
+              vars:
+                sdwan_personality: vmanage
+                sdwan_device_model: vmanage
+              hosts:
+                  cf2020-vmanage1:
+            vbond_hosts:
+              vars:
+                sdwan_personality: vbond
+                sdwan_device_model: vbond
+              hosts:
+                cf2020-vbond1:
+            vsmart_hosts:
+              vars:
+                sdwan_personality: vsmart
+                sdwan_device_model: vsmart
+              hosts:
+                cf2020-vsmart1:
+        sdwan_edge:
+          children:
+            physical:
+              hosts:              
+                cf2020-isr4k1:
+            vmware:
+              hosts:
+                cf2020-vedge1:
+                cf2020-vedge2:
