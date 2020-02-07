@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      customWorkspace '/workspace'
+      customWorkspace '/home/jenkins/agent/custom'
       defaultContainer 'ansible'
       yaml """
 apiVersion: v1
@@ -13,7 +13,7 @@ spec:
     - name: CONTAINER_ENV_VAR
       value: jnlp
     volumeMounts:
-    - mountPath: "/workspace"
+    - mountPath: "/home/jenkins/agent/custom"
       name: sdwan-devops-workspace
       readOnly: false
   - name: ansible
@@ -24,7 +24,7 @@ spec:
     - 99d
     tty: true
     volumeMounts:
-    - mountPath: "/workspace"
+    - mountPath: "/home/jenkins/agent/custom"
       name: sdwan-devops-workspace
       readOnly: false
   volumes:
