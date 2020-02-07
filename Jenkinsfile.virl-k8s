@@ -10,7 +10,7 @@ spec:
   - name: take-data-dir-ownership
     image: alpine:3.6
     command:
-    - mkdir 
+    - ls
     - /home/jenkins/agent/custom/workspace
     volumeMounts:
     - name: sdwan-devops-workspace
