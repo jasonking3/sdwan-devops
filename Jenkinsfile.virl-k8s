@@ -14,11 +14,10 @@ spec:
     - 99d
     tty: true
   workspaceVolume:
-    dynamicPVC:
+  - dynamicPVC:
       storageClassName: standard
       requestsSize: 2Gi
-      accessModes:
-      - ReadWriteOnce
+      accessModes: ReadWriteOnce
 """
     }
   }
