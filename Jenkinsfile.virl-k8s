@@ -20,9 +20,9 @@ spec:
       mountPath: /workspace
   containers:
   - name: jnlp
-    env:
-    - name: CONTAINER_ENV_VAR
-      value: jnlp
+    securityContext:
+      runAsUser: 0
+      runAsGroup: 0
     volumeMounts:
     - mountPath: "/workspace"
       name: sdwan-devops-workspace
