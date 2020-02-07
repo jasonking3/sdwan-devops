@@ -2,7 +2,6 @@ pipeline {
   agent {
     kubernetes {
       customWorkspace '/home/jenkins/agent/custom'
-      defaultContainer 'ansible'
       yaml """
 apiVersion: v1
 kind: Pod
