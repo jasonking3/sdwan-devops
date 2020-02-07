@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      customWorkspace '/home/jenkins/agent/custom'
+      customWorkspace '/home/jenkins/agent/custom/workspace'
       yaml """
 apiVersion: v1
 kind: Pod
