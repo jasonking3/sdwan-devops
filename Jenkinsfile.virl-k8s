@@ -6,6 +6,16 @@ pipeline {
 apiVersion: v1
 kind: Pod
 spec:
+  initContainers:
+  - name: take-data-dir-ownership
+    image: alpine:3.6
+    command:
+    - chmod
+    - 777
+    - *
+    volumeMounts:
+    - name: sdwan-devops-workspace
+      mountPath: /home/jenkins/agent/custom
   containers:
   - name: jnlp
     env:
