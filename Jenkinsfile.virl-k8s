@@ -1,11 +1,21 @@
 pipeline {
   agent {
     kubernetes {
-      customWorkspace '/workspace'
+      customWorkspace '/workspace/sdwan-devops'
       yaml '''
 apiVersion: v1
 kind: Pod
 spec:
+  initContainers:
+  - name: alpine
+    image: alpine:3.6
+    command:
+    - mkdir
+    - -p
+    - /workspace/sdwan-devops
+    volumeMounts:
+    - name: sdwan-devops-workspace
+      mountPath: /workspace
   containers:
   - name: jnlp
     securityContext:
