@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      customWorkspace '/workspace/sdwan-devops-virl'
+      customWorkspace '/workspace/sdwan-devops'
       yaml '''
 apiVersion: v1
 kind: Pod
@@ -12,7 +12,7 @@ spec:
     command:
     - mkdir
     - -p
-    - /workspace/sdwan-devops-virl
+    - /workspace/sdwan-devops
     volumeMounts:
     - name: sdwan-devops-workspace
       mountPath: /workspace
