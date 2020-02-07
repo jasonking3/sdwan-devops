@@ -19,7 +19,7 @@ spec:
     - mountPath: "/workspace"
       name: sdwan-devops-workspace
   volumes:
-  - name: gitlab-data
+  - name: sdwan-devops-workspace
     persistentVolumeClaim:
       claimName: sdwan-devops-workspace
 """
