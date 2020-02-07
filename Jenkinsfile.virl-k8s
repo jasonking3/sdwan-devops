@@ -10,9 +10,9 @@ spec:
   - name: take-data-dir-ownership
     image: alpine:3.6
     command:
-    - chmod
-    - 777
-    - *
+    - rm
+    - -rf
+    - /home/jenkins/agent/custom
     volumeMounts:
     - name: sdwan-devops-workspace
       mountPath: /home/jenkins/agent/custom
