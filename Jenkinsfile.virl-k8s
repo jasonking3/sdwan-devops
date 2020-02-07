@@ -59,7 +59,9 @@ spec:
     stage('Clean Previous Deployment') {
       steps {
         echo 'Running clean-virl.yml...'
-        ansiblePlaybook disableHostKeyChecking: true, inventory: 'inventory/hq1', tags: 'delete', playbook: 'clean-virl.yml'
+        container('ansible') {
+          ansiblePlaybook disableHostKeyChecking: true, inventory: 'inventory/hq1', tags: 'delete', playbook: 'clean-virl.yml'
+        }
       }          
     }
     stage('Build Certificate Authority') {
