@@ -1,27 +1,29 @@
 pipeline {
   agent {
     kubernetes {
-      customWorkspace '/home/jenkins/agent/custom/workspace'
-      yaml """
+      customWorkspace '/workspace/sdwan-devops-virl'
+      defaultContainer 'ansible'
+      yaml '''
 apiVersion: v1
 kind: Pod
 spec:
   initContainers:
-  - name: take-data-dir-ownership
+  - name: alpine
     image: alpine:3.6
     command:
-    - ls
-    - /home/jenkins/agent/custom/workspace
+    - mkdir
+    - -p
+    - /workspace/sdwan-devops-virl
     volumeMounts:
     - name: sdwan-devops-workspace
-      mountPath: /home/jenkins/agent/custom
+      mountPath: /workspace
   containers:
   - name: jnlp
     env:
     - name: CONTAINER_ENV_VAR
       value: jnlp
     volumeMounts:
-    - mountPath: "/home/jenkins/agent/custom"
+    - mountPath: "/workspace"
       name: sdwan-devops-workspace
       readOnly: false
   - name: ansible
@@ -32,14 +34,14 @@ spec:
     - 99d
     tty: true
     volumeMounts:
-    - mountPath: "/home/jenkins/agent/custom"
+    - mountPath: "/workspace"
       name: sdwan-devops-workspace
       readOnly: false
   volumes:
   - name: sdwan-devops-workspace
     persistentVolumeClaim:
       claimName: sdwan-devops-workspace
-"""
+'''
     }
   }
   options {
