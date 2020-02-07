@@ -13,11 +13,7 @@ spec:
     args:
     - 99d
     tty: true
-  workspaceVolume:
-  - dynamicPVC:
-      storageClassName: standard
-      requestsSize: 2Gi
-      accessModes: ReadWriteOnce
+  inheritFrom: default
 """
     }
   }
