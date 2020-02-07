@@ -2,7 +2,6 @@ pipeline {
   agent {
     kubernetes {
       customWorkspace '/workspace/sdwan-devops-virl'
-      defaultContainer 'ansible'
       yaml '''
 apiVersion: v1
 kind: Pod
