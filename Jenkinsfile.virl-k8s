@@ -13,7 +13,8 @@ spec:
     command:
     - mkdir
     - -p
-    - -m 777
+    - -m
+    - 777
     - /workspace/sdwan-devops-virl
     volumeMounts:
     - name: sdwan-devops-workspace
