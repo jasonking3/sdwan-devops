@@ -15,6 +15,13 @@ spec:
     args:
     - 99d
     tty: true
+    volumeMounts:
+    - mountPath: "/workspace"
+      name: sdwan-devops-workspace
+  volumes:
+  - name: gitlab-data
+    persistentVolumeClaim:
+      claimName: sdwan-devops-workspace
 """
     }
   }
