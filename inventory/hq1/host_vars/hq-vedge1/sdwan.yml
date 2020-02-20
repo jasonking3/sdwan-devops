@@ -5,7 +5,7 @@ sdwan_model: 'hq-vedge-cloud'
 sdwan_personality: vedge
 sdwan_uuid: '3270c8ed-fdb6-b5df-7910-28d05612608e'
 sdwan_template:
-  name: 'branch-vedge-cloud'
+  name: 'hq-vedge-cloud'
   variables:
     'vpn512_interface': eth0
     'vpn0_interface': ge0/0    
