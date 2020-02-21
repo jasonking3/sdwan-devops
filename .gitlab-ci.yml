@@ -4,8 +4,8 @@ stages:
   - build-control
   - config-control
   - deploy-edges
-  - attach-templates
   - waitfor-edges
+  - attach-templates
   - test
 
 image: jasonking/ansible-viptela
@@ -68,19 +68,22 @@ deploy-edges:
   only:
     changes:
       - inventory/hq1/sdwan.yml
-  
+
+waitfor-edges:
+  <<: *tags
+  stage: waitfor-edges
+  script:
+    - ansible-playbook waitfor-sync.yml
+  only:
+    changes:
+      - inventory/hq1/sdwan.yml
+          
 attach-templates:
   <<: *tags
   stage: attach-templates
   script:
     - ansible-playbook attach-template.yml
 
-waitfor-edges:
-  <<: *tags
-  stage: waitfor-edges
-  script:
-  - ansible-playbook waitfor-sync.yml
-  
 test:
   <<: *tags
   stage: test
