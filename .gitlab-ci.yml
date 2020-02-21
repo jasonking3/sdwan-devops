@@ -4,6 +4,7 @@ stages:
   - build-control
   - config-control
   - deploy-edges
+  - attach-templates
   - waitfor-edges
   - test
 
@@ -64,6 +65,15 @@ deploy-edges:
   stage: deploy-edges
   script:
     - ansible-playbook deploy-virl.yml
+  only:
+    changes:
+      - inventory/hq1/sdwan.yml
+  
+attach-templates:
+  <<: *tags
+  stage: attach-templates
+  script:
+    - ansible-playbook attach-template.yml
 
 waitfor-edges:
   <<: *tags
