@@ -1,4 +1,4 @@
-- import_playbook: clean-control.yml
+- import_playbook: clean-certs.yml passed=sdwan_control
   tags: [control, never]
 
 - name: Delete Control Planw VMs
@@ -34,6 +34,9 @@
           vsmart_template: "{{ vsmart_template }}"
           vedge_template: "{{ vedge_template }}"     
       when: control_stat_result.stat.exists == true
+
+- import_playbook: clean-certs.yml passed=sdwan_edge
+  tags: [edges, never]
 
 - name: Delete Edge VMs
   hosts: localhost

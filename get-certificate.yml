@@ -1,0 +1,63 @@
+- name: Get Device Certificates From Enterprise CA
+  hosts: "{{ passed | default('sdwan') }}"  
+  connection: local
+  roles:
+    - ansible-viptela
+  any_errors_fatal: true
+  gather_facts: no
+  vars:
+    ca_server: cf2020-WIN-4E92OFOIPNU-CA   
+  tasks:
+    - set_fact:
+        vmanage_host: "{{ groups.vmanage_hosts | first }}"
+
+    - set_fact:
+        vmanage_ip: "{{ hostvars[vmanage_host].ansible_host | default(hostvars[vmanage_host].sdwan_transport_ip) }}"
+
+    - name: Getting CSR from vManage
+      vmanage_certificate_vedge:
+        host: "{{ vmanage_ip }}"
+        user: "{{ vmanage_user }}"
+        password: "{{ vmanage_pass }}"
+        uuid: "{{ sdwan_uuid }}"
+        state: csr
+      register: device
+      retries: 10
+      delay: 10
+      until: device is not failed 
+
+    - name: Write out CSR
+      copy:
+        content: "{{ device.deviceCSR }}"
+        dest: "{{ sdwan_cert_dir }}/{{ inventory_hostname }}.csr"
+      delegate_to: localhost
+
+    - name: Send CSR to CA
+      script: >
+        ./getnewcert_ans.py {{ ca_server }} 1 2 SD-WAN {{ inventory_hostname }}
+      args:
+        executable: /usr/bin/python3            
+      delegate_to: localhost
+
+    - name: Add Certificate to vManage
+      vmanage_certificate_vedge:
+        host: "{{ vmanage_ip }}"
+        user: "{{ vmanage_user }}"
+        password: "{{ vmanage_pass }}"
+        uuid: "{{ sdwan_uuid }}"
+        cert: "{{lookup('file', '{{ sdwan_cert_dir }}/{{ inventory_hostname }}.crt')}}"
+      register: result
+      retries: 10
+      delay: 10
+      until: result is not failed 
+
+    - name: Push Certs to Controllers
+      vmanage_device_certificate:
+        host: "{{ vmanage_ip }}"
+        user: "{{ vmanage_user }}"
+        password: "{{ vmanage_pass }}"
+        state: push
+      register: result
+      retries: 10
+      delay: 10
+      until: result is not failed 

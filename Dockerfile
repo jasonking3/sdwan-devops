@@ -37,6 +37,10 @@ RUN echo "===> Installing Terraform ****" && \
     mv terraform /usr/bin && \
     rm terraform_0.12.12_linux_amd64.zip
 
+COPY files/certsrv-2.1.1-py3-none-any.whl /tmp/certsrv-2.1.1-py3-none-any.whl
+RUN echo "===> Installing certsrv library..."  && \
+    pip install /tmp/certsrv-2.1.1-py3-none-any.whl
+
 # Define working directory.
 ENV ANSIBLE_HOST_KEY_CHECKING false
 ENV ANSIBLE_RETRY_FILES_ENABLED false

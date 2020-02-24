@@ -34,7 +34,9 @@ all:
           children:
             physical:
               hosts:              
-                cf2020-isr4k1:
+#                cf2020-isr4k1:
+#                cf2020-isr1k1:
+                cf2020-isr1k2:
             vmware:
               hosts:
                 cf2020-vedge1:
