@@ -1,0 +1,26 @@
+sdwan_system_ip: 192.168.255.13
+sdwan_site_id: 1
+sdwan_vbond: 10.0.0.11
+sdwan_model: 'hq-vedge-cloud'
+sdwan_personality: vedge
+sdwan_uuid: '3270c8ed-fdb6-b5df-7910-28d05612608e'
+sdwan_template:
+  name: 'hq-vedge-cloud'
+  variables:
+    'vpn512_interface': eth0
+    'vpn0_interface': ge0/0    
+    'vpn0_internet_ipv4_address': 10.0.0.13/24
+    'vpn0_default_gateway': 10.0.0.1
+    'vpn1_interface': ge0/1
+    'vpn1_ipv4_address': 10.0.255.6/30
+    'vpn1_ospf_interface': ge0/1
+    'system_latitude': 37.411343
+    'system_longitude': -121.938803
+    'system_site_id': 1
+    'system_host_name': hq-vedge1
+    'system_system_ip': 192.168.255.13
+    'banner_login': "{{ login_banner }}"
+    'banner_motd': Welcome to hq-vedge1!
+sdwan_gps_location:
+  latitude: 37.411343
+  longitude: -121.938803
