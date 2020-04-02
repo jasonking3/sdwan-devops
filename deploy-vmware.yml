@@ -1,4 +1,4 @@
-- import_playbook: attach-template.yml passed=vmware_edges
+- import_playbook: attach-template.yml passed=vmware_vedges:vmware_cedges
 
 - name: Build vedge VMs with Terraform
   hosts: localhost
@@ -32,7 +32,8 @@
           vmanage_template: "{{ vmanage_template }}"
           vbond_template: "{{ vbond_template }}"
           vsmart_template: "{{ vsmart_template }}"
-          vedge_template: "{{ vedge_template }}"        
+          vedge_template: "{{ vedge_template }}"
+          cedge_template: "{{ cedge_template }}"
         force_init: yes
       tags: plan
 
@@ -45,9 +46,10 @@
         variables_file: edges.tfvars
       tags: apply
 
-- import_playbook: config-system.yml passed=vmware_edges
+- import_playbook: config-system.yml passed=vmware_vedges
 
-- import_playbook: config-ca.yml passed=vmware_edges
+- import_playbook: config-ca.yml passed=vmware_vedges
 
-- import_playbook: config-uuid-otp.yml passed=vmware_edges
+- import_playbook: config-uuid-otp.yml passed=vmware_vedges
 
+- import_playbook: bootstrap-cedge.yml passed=vmware_cedges

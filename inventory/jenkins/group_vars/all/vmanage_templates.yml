@@ -1550,7 +1550,7 @@ vmanage_feature_templates:
                 sshd:
                     vipObjectType: object
                     vipType: constant
-                    vipValue: 'false'
+                    vipValue: 'true'
                     vipVariableName: vpn_if_tunnel_sshd
                 stun:
                     vipObjectType: object

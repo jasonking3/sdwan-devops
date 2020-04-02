@@ -1,0 +1,30 @@
+- name: Remove device from vManage
+  hosts: "{{ passed | default('sdwan_edge') }}"  
+  connection: local
+  gather_facts: no
+  roles:
+    - ansible-viptela
+  tasks:
+    - block:
+      - set_fact:
+          vmanage_host: "{{ groups.vmanage_hosts | first | default('') }}"
+
+      - set_fact:
+          vmanage_ip: "{{ hostvars[vmanage_host].ansible_host | default('') }}"
+        when: vmanage_host is defined
+
+      - name: Remove device from vManage
+        vmanage_device:
+          host: "{{ vmanage_ip }}"
+          user: "{{ vmanage_user }}"
+          password: "{{ vmanage_pass }}"
+          uuid: "{{ viptela.uuid | default(omit) }}"
+          name: "{{ inventory_hostname }}"
+          personality: "{{ viptela.personality | default(omit) }}"
+          state: absent
+        delegate_to: localhost  
+        register: result
+        ignore_errors: yes
+        when: vmanage_ip is defined and vmanage_ip
+      
+      when: inventory_hostname in groups.sdwan

@@ -1,7 +1,10 @@
 - import_playbook: clean-certs.yml
   tags: [control, never]
 
-- name: Delete Control Planw VMs
+- import_playbook: remove-device.yml passed=vmware_vedges:vmware_cedges
+  tags: [edges, never]
+
+- name: Delete Control Plane VMs
   hosts: localhost
   connection: local
   tags:
