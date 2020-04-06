@@ -55,3 +55,8 @@
       register: command_result
       connection: network_cli
       when: bootstrap_file.stat.exists == true
+
+    - name: Cleanup day0 config
+      file:
+        path: "{{ bootstrap_config }}"
+        state: absent
