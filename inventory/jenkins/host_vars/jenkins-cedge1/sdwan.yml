@@ -1,18 +1,18 @@
 sdwan_system_ip: 1.1.10.1
-sdwan_transport_ip: "{{ ansible_host }}"
+sdwan_transport_ip: 192.133.146.16
 # ansible_host: "{{ sdwan_transport_ip }}"
 sdwan_site_id: 10
-sdwan_model: 'vedge-cloud'
-sdwan_uuid: 36b8fb11-0aa4-8f2e-5174-a7793ae246f4
+sdwan_model: 'vedge-CSR-1000v'
+sdwan_uuid: CSR-82DEC3C6-3A28-B866-6F4A-40BEA274CA00
 sdwan_personality: vedge
 sdwan_template:
-  name: 'branch-vedge-cloud'
+  name: 'branch-csr1000v'
   variables:
-    'vpn512_interface': eth0
-    'vpn0_interface': ge0/0
+    'vpn512_interface': GigabitEthernet2
+    'vpn0_interface': GigabitEthernet1
     'vpn0_internet_ipv4_address': 192.133.146.16/24
     'vpn0_default_gateway': 192.133.146.1
-    'vpn1_interface': ge0/1
+    'vpn1_interface': GigabitEthernet3
     'vpn1_ipv4_address': 192.168.10.1/24
     'system_latitude': 37.411343
     'system_longitude': -121.938803

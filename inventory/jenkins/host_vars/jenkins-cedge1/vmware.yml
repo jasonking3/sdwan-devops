@@ -1,4 +1,6 @@
 vpn0_portgroup: cpn-colab
 vpn0_ipv4_address: dhcp
+# vpn0_netmask: 24
+# vpn0_gateway: 192.133.146.1
 vpn512_portgroup: cpn-colab
-servicevpn_portgroup: site11
+servicevpn_portgroup: site10

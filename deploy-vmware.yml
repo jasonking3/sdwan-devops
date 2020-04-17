@@ -46,6 +46,8 @@
         variables_file: edges.tfvars
       tags: apply
 
+    - meta: refresh_inventory
+
 - import_playbook: config-system.yml passed=vmware_vedges
 
 - import_playbook: config-ca.yml passed=vmware_vedges

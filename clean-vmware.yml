@@ -1,8 +1,8 @@
 - import_playbook: clean-certs.yml
-  tags: [control, never]
+  tags: [control]
 
 - import_playbook: remove-device.yml passed=vmware_vedges:vmware_cedges
-  tags: [edges, never]
+  tags: [edges]
 
 - name: Delete Control Plane VMs
   hosts: localhost
@@ -10,7 +10,6 @@
   tags:
     - terraform
     - control
-    - never
   any_errors_fatal: true
   gather_facts: no
   tasks:
@@ -44,7 +43,6 @@
   tags:
     - terraform
     - edges
-    - never
   any_errors_fatal: true
   gather_facts: no
   tasks:

@@ -6,5 +6,7 @@
   any_errors_fatal: true
   gather_facts: no
   tasks:
+    - meta: refresh_inventory
+    
     - netconf_config:
         content: "{{ lookup('template', 'sdwan/netconf/system.j2') }}"

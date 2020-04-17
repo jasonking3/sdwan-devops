@@ -2,8 +2,12 @@ vedge_device_list = {
     {% for host in groups['vmware_vedges'] -%}
     "{{ hostvars[host]['inventory_hostname'] }}" = {
         networks = ["{{ hostvars[host]['vpn512_portgroup'] }}", "{{ hostvars[host]['vpn0_portgroup'] }}", "{{ hostvars[host]['servicevpn_portgroup'] }}"]
-        ipv4_address = "{{ hostvars[host]['sdwan_transport_ip'] }}/{{ hostvars[host]['vpn0_netmask'] }}"
+        {% if hostvars[host]['vpn0_ipv4_address'] == "dhcp" %}
+        ipv4_address = "dhcp"
+        {% else %}
+        ipv4_address = "{{ hostvars[host]['vpn0_ipv4_address'] }}/{{ hostvars[host]['vpn0_netmask'] }}"
         ipv4_gateway = "{{ hostvars[host]['vpn0_gateway'] }}"
+        {% endif %}
     }{% if not loop.last %},{% endif %}
 
     {% endfor %}
@@ -13,8 +17,12 @@ cedge_device_list = {
     {% for host in groups['vmware_cedges'] -%}
     "{{ hostvars[host]['inventory_hostname'] }}" = {
         networks = ["{{ hostvars[host]['vpn512_portgroup'] }}", "{{ hostvars[host]['vpn0_portgroup'] }}", "{{ hostvars[host]['servicevpn_portgroup'] }}"]
-        ipv4_address = "{{ hostvars[host]['sdwan_transport_ip'] }}/{{ hostvars[host]['vpn0_netmask'] }}"
+        {% if hostvars[host]['vpn0_ipv4_address'] == "dhcp" %}
+        ipv4_address = "dhcp"
+        {% else %}
+        ipv4_address = "{{ hostvars[host]['vpn0_ipv4_address'] }}/{{ hostvars[host]['vpn0_netmask'] }}"
         ipv4_gateway = "{{ hostvars[host]['vpn0_gateway'] }}"
+        {% endif %}
     }{% if not loop.last %},{% endif %}
 
     {% endfor %}

@@ -29,7 +29,10 @@ all:
             # physical:
             #   hosts:              
             #     jenkins-isr1k1:
-            vmware_edges:
+            vmware_vedges:
               hosts:
-                jenkins-vedge1:
+                # jenkins-vedge1:
                 jenkins-vedge2:
+            vmware_cedges:
+              hosts:
+                jenkins-cedge1:
