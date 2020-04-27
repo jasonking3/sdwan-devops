@@ -44,9 +44,9 @@ spec:
         echo 'Running build-ca.yml...'
         container('ansible') {
           ansiblePlaybook disableHostKeyChecking: true, playbook: 'build-ca.yml'
+        sleep 180
         }
       }
-      sleep 180
     }        
     stage('Build Control Plane on VIRL') {
       steps {
