@@ -55,6 +55,14 @@ spec:
         }
       }
     }
+    stage('Test virl2 dynamic inventory') {
+      steps {
+        echo 'Running virl-inventory.yml...'    
+        container('ansible') {
+           ansiblePlaybook disableHostKeyChecking: true, inventory: 'inventory/hq1', playbook: 'virl-inventory.yml'
+        }
+      }
+    }       
     stage('Configure Control Plane') {
       steps {
         echo 'Configure Control Plane...'
