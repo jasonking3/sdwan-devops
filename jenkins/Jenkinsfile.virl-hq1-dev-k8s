@@ -7,8 +7,7 @@ kind: Pod
 spec:
   containers:
   - name: ansible
-    image: ciscops/ansible-sdwan:dev
-    imagePullPolicy: Always
+    image: ciscops/ansible-sdwan-dev
     command:
     - sleep
     args:
