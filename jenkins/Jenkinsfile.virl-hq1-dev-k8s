@@ -43,7 +43,6 @@ spec:
         echo 'Running build-ca.yml...'
         container('ansible') {
           ansiblePlaybook disableHostKeyChecking: true, playbook: 'build-ca.yml'
-        sleep 180
         }
       }
     }        
@@ -52,6 +51,7 @@ spec:
         echo 'Running build-virl.yml...'
         container('ansible') {
           ansiblePlaybook disableHostKeyChecking: true, inventory: 'inventory/hq1', playbook: 'build-virl.yml'
+        sleep 180
         }
       }
     }
