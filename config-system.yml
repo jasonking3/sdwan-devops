@@ -1,8 +1,9 @@
 - name: Push NETCONF template
-  hosts: "{{ passed | default('sdwan') }}"  
+  hosts: "{{ passed }}"
+  vars:
+    host_mgmt_interface: "{{ hostvars[inventory_hostname].mgmt_interface | default('ansible_host') }}"
+    ansible_host: "{{ hostvars[inventory_hostname][host_mgmt_interface] | ipaddr('address') }}"
   connection: netconf
-  tags:
-    - netconf
   any_errors_fatal: true
   gather_facts: no
   tasks:
